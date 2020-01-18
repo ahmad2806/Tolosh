@@ -6,11 +6,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
-  <ion-button color="primary">Primary</ion-button>
+<ion-content >
+
+  <ion-button color="primary" (click)="downloadAndOpenPdf()">download and open PDF is</ion-button>
+  <ion-button color="primary" (click)="loadLocalPdf()">load local PDF</ion-button>
+  <ion-button color="primary" (click)="loadFillablePDF()">load fillable PDF</ion-button>
 
 </ion-content>

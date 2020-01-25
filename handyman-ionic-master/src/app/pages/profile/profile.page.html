@@ -1,0 +1,203 @@
+<ion-header no-border>
+	<ion-toolbar [appHideheader]="scrollArea">
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="/"></ion-back-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content #scrollArea scrollEvents="true">
+	<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+		<ion-fab-button (click)="onClick()">
+			<ion-icon name="calendar"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+	<ion-grid>
+		<ion-row>
+			<ion-col class="ion-profile ion-text-center">
+				<ion-avatar>
+					<img src="{{ item?.avatar }}" />
+				</ion-avatar>
+				<h5>
+					{{ item?.name }}
+					<ion-icon
+						*ngIf="item?.verified"
+						class="icon-verified"
+						name="checkmark-circle"
+					></ion-icon>
+				</h5>
+				<small *ngIf="item?.verified" class="verified"
+					>Verified professional</small
+				>
+				<p>
+					{{ item?.info }}
+				</p>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-segment [(ngModel)]="valueType">
+				<ion-segment-button value="info">
+					Info
+				</ion-segment-button>
+				<ion-segment-button value="gallery">
+					Gallery
+				</ion-segment-button>
+				<ion-segment-button value="reviews">
+					Reviews
+				</ion-segment-button>
+			</ion-segment>
+		</ion-row>
+		<div [ngSwitch]="valueType">
+			<ion-grid *ngSwitchCase="'info'">
+				<ion-row>
+					<ion-col>
+						<div class="info-list">
+							<p>Services</p>
+							<ion-list>
+								<ion-item lines="none">
+									<ion-label>Painting</ion-label>
+									<div class="rate">
+										<p>{{ 18 | currency }}</p>
+										<span>per hour</span>
+									</div>
+								</ion-item>
+								<ion-item lines="none">
+									<ion-label>Steel framer</ion-label>
+									<div class="rate">
+										<p>{{ 62 | currency }}</p>
+										<span>per hour</span>
+									</div>
+								</ion-item>
+								<ion-item lines="none">
+									<ion-label>Ironwork and Woodwork</ion-label>
+									<div class="rate">
+										<p>{{ 60 | currency }}</p>
+										<span>per hour</span>
+									</div>
+								</ion-item>
+								<ion-item lines="none">
+									<ion-label>Roof repairment</ion-label>
+									<div class="rate">
+										<p>{{ 45 | currency }}</p>
+										<span>per hour</span>
+									</div>
+								</ion-item>
+								<ion-item lines="none">
+									<ion-label>Moving</ion-label>
+									<div class="rate">
+										<p>{{ 20 | currency }}</p>
+										<span>per hour</span>
+									</div>
+								</ion-item>
+							</ion-list>
+						</div>
+
+						<div class="info-list">
+							<p>Services Hours</p>
+							<ion-list>
+								<ion-item lines="none">
+									<ion-label>Mondays</ion-label>
+									<small slot="end">8:00 to 20:00</small>
+								</ion-item>
+								<ion-item lines="none">
+									<ion-label>Tuesdays</ion-label>
+									<small slot="end">11:00 to 14:00</small>
+								</ion-item>
+								<ion-item lines="none">
+									<ion-label>Wednesdays</ion-label>
+									<small slot="end">10:00 to 22:00</small>
+								</ion-item>
+								<ion-item lines="none">
+									<ion-label>Thursdays</ion-label>
+									<small slot="end">8:00 to 20:00</small>
+								</ion-item>
+								<ion-item lines="none">
+									<ion-label>Fridays</ion-label>
+									<small slot="end">8:00 to 20:00</small>
+								</ion-item>
+								<ion-item lines="none">
+									<ion-label>Saturdays</ion-label>
+									<small slot="end">8:00 to 16:00</small>
+								</ion-item>
+								<ion-item lines="none">
+									<ion-label>Sundays</ion-label>
+									<small slot="end">Closed</small>
+								</ion-item>
+							</ion-list>
+						</div>
+						<div class="info-list">
+							<p>Contact Info</p>
+							<ion-list>
+								<ion-item lines="none">
+									<ion-label>unclejohn@gmail.com</ion-label>
+								</ion-item>
+								<ion-item lines="none">
+									<ion-label>(+1) 800 345 6870</ion-label>
+								</ion-item>
+							</ion-list>
+						</div>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+			<div class="images" *ngSwitchCase="'gallery'">
+				<div
+					class="one-image"
+					*ngFor="let item of images; let i = index"
+				>
+					<img class="gallery-item" [src]="item.image" alt="" />
+				</div>
+			</div>
+			<ion-grid *ngSwitchCase="'reviews'">
+				<ion-row>
+					<ion-col>
+						<!-- review list-->
+						<div class="review-container">
+							<p>{{ item?.reviews }} <small>reviews</small></p>
+							<ion-item lines="none">
+								<ion-progress-bar
+									color="primary"
+									value="1"
+								></ion-progress-bar>
+								<span slot="end"> 5 stars</span>
+							</ion-item>
+							<ion-item lines="none">
+								<ion-progress-bar
+									color="primary"
+									value=".8"
+								></ion-progress-bar>
+								<span slot="end"> 4 stars</span>
+							</ion-item>
+							<ion-item lines="none">
+								<ion-progress-bar
+									color="primary"
+									value=".1"
+								></ion-progress-bar>
+								<span slot="end"> 3 stars</span>
+							</ion-item>
+							<ion-item lines="none">
+								<ion-progress-bar
+									color="primary"
+									value=".4"
+								></ion-progress-bar>
+								<span slot="end"> 2 stars</span>
+							</ion-item>
+							<ion-item lines="none">
+								<ion-progress-bar
+									color="primary"
+									value=".1"
+								></ion-progress-bar>
+								<span slot="end"> 1 stars</span>
+							</ion-item>
+						</div>
+						<app-card-review
+							*ngFor="let item of reviews; let i = index"
+							[avatar]="item.avatar"
+							[name]="item.name"
+							[rate]="item.rate"
+							[text]="item.text"
+						></app-card-review>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</div>
+	</ion-grid>
+</ion-content>

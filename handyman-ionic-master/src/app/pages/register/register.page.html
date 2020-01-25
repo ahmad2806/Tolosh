@@ -1,0 +1,43 @@
+
+<ion-header no-border>
+	<ion-toolbar>
+		<ion-title color="primary">Create an account</ion-title>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-grid class="column-evenly">
+		<ion-row>
+			<ion-col>
+				<ion-item class="ion-no-padding">
+					<ion-label position="stacked">My name is</ion-label>
+					<ion-input></ion-input>
+				</ion-item>
+				<ion-item class="ion-no-padding">
+					<ion-label position="stacked">My email address is</ion-label>
+					<ion-input></ion-input>
+				</ion-item>
+				<p class="input-help">Why do we need this?</p>
+				<ion-item class="ion-no-padding">
+					<ion-label position="stacked">Secure it with a password</ion-label>
+					<ion-input type="password"></ion-input>
+				</ion-item>
+				<div class="agree-terms">
+					<ion-checkbox slot="start" checked="true"> </ion-checkbox>
+					<ion-label>
+						<span>I agree with the <a href="#">Terms and Conditions</a></span>
+					</ion-label>
+				</div>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<ion-button class="button-size center-button" expand="block" (click)="register()">
+					Sign Up
+				</ion-button>
+				<div class="m-top"><span>Have an account? <a [routerLink]="['/login']" >Sign in</a></span></div>
+			
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>
+    

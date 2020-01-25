@@ -1,0 +1,22 @@
+<ion-card class="bk-white">
+	<ion-card-header>
+		<div class="card-title">
+			<ion-avatar>
+				<img src="{{ avatar }}" />
+			</ion-avatar>
+			<div>
+				<ion-card-title>{{ name }}</ion-card-title>
+				<ion-card-subtitle>
+					{{ reviews }} reviews
+				</ion-card-subtitle>
+			</div>
+		</div>
+		<div>
+			<ion-badge class="ion-badge" color="primary">{{ distance }}</ion-badge>
+		</div>
+	</ion-card-header>
+
+	<ion-card-content>
+		{{ info }}
+	</ion-card-content>
+</ion-card>

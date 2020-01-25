@@ -1,0 +1,31 @@
+<ion-header no-border>
+    <ion-toolbar>
+      <ion-title color="primary">Welcome</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="column-evenly">
+		<ion-row>
+			<ion-col>         
+				<ion-item class="ion-no-padding">
+					<ion-label position="stacked">Email address</ion-label>
+					<ion-input [(ngModel)]="email"></ion-input>
+				</ion-item>
+				<ion-item class="ion-no-padding">
+					<ion-label position="stacked">Password</ion-label>
+					<ion-input type="password" [(ngModel)]="password"></ion-input>
+				</ion-item>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<ion-button 
+				class="button-size center-button" expand="block" (click)="login()">
+					Sign In
+				</ion-button>
+					<div class="m-top"><span>Don't have an account? Please ask admin to create account for you</span></div>
+			</ion-col>
+		</ion-row>
+    </ion-grid>
+</ion-content>

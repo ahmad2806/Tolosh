@@ -1,0 +1,21 @@
+<ion-card class="bk-white">
+  <ion-card-header>
+    <div class="card-title">
+      <ion-avatar>
+        <img src="{{ avatar }}" />
+      </ion-avatar>
+      <div class="text-container">
+        <ion-card-title>{{ name }}</ion-card-title>
+        <ion-card-subtitle>
+          <ionic4-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#E38E3F"
+            defaultColor="#a6b0bf" readonly="true" rating="{{ rate }}" fontSize="14pt">
+          </ionic4-star-rating>
+        </ion-card-subtitle>
+      </div>
+    </div>
+  </ion-card-header>
+
+  <ion-card-content>
+    {{ text }}
+  </ion-card-content>
+</ion-card>

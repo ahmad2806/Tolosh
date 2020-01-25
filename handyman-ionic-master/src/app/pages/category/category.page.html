@@ -1,0 +1,44 @@
+<ion-header no-border>
+	<ion-toolbar [appHideheader]="scrollArea">
+		<ion-buttons slot="start">
+		<ion-back-button defaultHref="/"></ion-back-button>
+		</ion-buttons>
+		<ion-title color="secondary">{{item?.name}}</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content  #scrollArea scrollEvents="true">
+	<ion-grid>
+		<ion-row>
+			<ion-col>
+				<ion-searchbar animated></ion-searchbar>
+
+				
+				<div class="filter-container">
+					<ion-select value="recent" interface="popover">
+						<ion-select-option value="recent">Most recent</ion-select-option>
+						<ion-select-option value="az">A-Z</ion-select-option>
+						<ion-select-option value="za">Z-A</ion-select-option>
+						<ion-select-option value="featured">Featured</ion-select-option>
+					</ion-select>
+					<ion-buttons class="icons">
+						<ion-button>
+							<ion-icon slot="icon-only" name="apps"></ion-icon>
+						</ion-button>
+						<ion-button>
+							<ion-icon slot="icon-only" name="menu"></ion-icon>
+						</ion-button>
+					</ion-buttons>
+				</div>
+				
+				<app-card-categories  [routerLink]="'/profile/' + item.id" *ngFor="let item of data; let i = index"
+				[name]="item.name"
+				[avatar]="item.avatar"
+				[reviews]="item.reviews"
+				[distance]="item.distance"
+				[info]="item.info"
+				></app-card-categories>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

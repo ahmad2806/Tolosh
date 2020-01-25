@@ -1,0 +1,40 @@
+<ion-header no-border>
+	<ion-toolbar  [appHideheader]="scrollArea">
+		<ion-grid>
+			<ion-row>
+				<ion-col class="flex-container" >
+					<div class="left-side">
+						<span>Welcome</span>
+						<h5>Basheer Sheikha</h5>
+					</div>
+					<div class="right-side">
+						<div class="inbox-icon" [routerLink]="['/my-appointments']">
+							<ion-icon src="/assets/icons/inbox.svg"></ion-icon>
+							<ion-badge color="danger">10</ion-badge>
+						</div>
+					</div>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content  #scrollArea scrollEvents="true">
+	<ion-grid>
+		<ion-row>
+			<ion-col>
+				<h5>What do you want to do?</h5>
+			</ion-col>
+		</ion-row>
+		<hr/>
+		<ion-row>
+			<ng-container *ngFor="let item of cardInf">
+				<ion-col size="6"  >
+					<app-card-info  [routerLink]="item.routePage" [info]="item"></app-card-info>
+				</ion-col>
+			</ng-container>
+    	</ion-row>    
+	</ion-grid>
+  	<ion-grid>
+  	</ion-grid>
+</ion-content>

@@ -1,4 +1,4 @@
-<ion-header translucent>
+<!-- <ion-header translucent>
   <ion-toolbar>
     <ion-title>{{listObject.pageName}}</ion-title>
   </ion-toolbar>
@@ -20,4 +20,13 @@
       </ion-label>
     </ion-item>
   </ion-list>
-</ion-content>
+</ion-content> -->
+<ion-item>
+  <ion-avatar slot="start">
+    <img [src]="this.url">
+  </ion-avatar>
+  <ion-label>
+    <h2>{{name}}</h2>
+    <p>{{date}}</p>
+  </ion-label>
+</ion-item>

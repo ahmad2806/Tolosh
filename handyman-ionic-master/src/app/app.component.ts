@@ -29,13 +29,14 @@ export class AppComponent {
       this.statusBar.backgroundColorByHexString("#f9fafb");
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.authService.authenticationState.subscribe(state => {
-        if (state) {
-          this.router.navigate(['home']);
-        } else {
-          this.router.navigate(['login']);
-        }
-      });
+      this.router.navigate(['home']);
+      // this.authService.authenticationState.subscribe(state => {
+      //   if (state) {
+      //     this.router.navigate(['home']);
+      //   } else {
+      //     this.router.navigate(['login']);
+      //   }
+      // });
  
   
     });

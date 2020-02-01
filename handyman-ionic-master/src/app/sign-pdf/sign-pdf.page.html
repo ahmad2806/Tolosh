@@ -14,5 +14,7 @@
     <ion-button color="primary" (click)="loadFillablePDF()">load fillable PDF</ion-button>
     
   </ion-content> -->
+<app-files-list *ngFor="let item of this.dataService.signPdf" (click)="m_alert()" [name]="item.name" [date]=""
+  [url]="item.url">
 
-<app-files-list [listObject]="signObject"></app-files-list>
+</app-files-list>

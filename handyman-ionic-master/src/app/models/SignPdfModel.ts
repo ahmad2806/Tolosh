@@ -1,8 +1,8 @@
 
-export class FileModel {
+export class SignPdfModel {
     constructor(
         public name: string,
-        public id: string,
+        public url: string,
         public date: Date,
     ) {}
 }

@@ -9,13 +9,14 @@ import { AppAvailability } from '@ionic-native/app-availability/ngx';
 import { Market } from '@ionic-native/market/ngx';
 import { DataService } from '../services/data.service'
 import { ListPageObject } from '../models/listPageObject.model';
+import { SignPdfModel } from '../models/SignPdfModel';
 
 @Component({
   selector: 'app-sign-pdf',
   templateUrl: './sign-pdf.page.html',
   styleUrls: ['./sign-pdf.page.scss'],
 })
-export class SignPdfPage {
+export class SignPdfPage implements OnInit{
 
   constructor(
     private platform: Platform, private document: DocumentViewer,
@@ -23,13 +24,17 @@ export class SignPdfPage {
     private fileOpener: FileOpener, private appAvailability: AppAvailability,
     private market: Market, private alertCtrl: AlertController, private dataService: DataService) { }
 
-  private signObject = new ListPageObject( 
-                          "Sign PDF", 
-                          this.dataService.signPdf, 
-                          this.m_alert, 
-                          "../../assets/pdf_icon.png" 
-                        )
+    ngOnInit(){
+      this.dataService.getSign();
+    }
 
+  // private signObject = new ListPageObject( 
+  //                         "Sign PDF", 
+  //                         this.dataService.signPdf, 
+  //                         this.m_alert, 
+  //                         "../../assets/pdf_icon.png" 
+  //                       )
+  
   private PDF_READER: string = "com.adobe.reader";
   private APP_NOT_FOUND: string = `please download adobe acrobat to ensure the best results\ndownlaod and come back to the app\n`
   private OPEN_APP: string = `please open the pdf using adobe acrobat to ensure the best results\n`

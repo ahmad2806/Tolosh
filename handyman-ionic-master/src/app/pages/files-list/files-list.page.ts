@@ -9,7 +9,12 @@ import { DataService } from '../../services/data.service';
 export class FilesListPage implements OnInit {
 
   @Input() listObject: any;
-  constructor(private dataService: DataService) { }
+  @Input() name: string;
+  @Input() date: Date;
+  @Input() url: Date;
+  constructor(private dataService: DataService) { 
+    console.log("inside")
+  }
 
   ngOnInit() {
   }

@@ -7,10 +7,10 @@ const routes: Routes = [
     //     path: '',
     //     loadChildren: () => import('./pages/onboarding/onboarding.module').then(m => m.OnboardingPageModule)
     // },
-    {
-        path: 'login',
-        loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
-    },
+    // {
+    //     path: 'login',
+    //     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
+    // },
     {
         path: 'register',
         loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterPageModule)
@@ -34,7 +34,7 @@ const routes: Routes = [
     {
         path: 'home',
         loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule),
-        canActivate: [AuthGuardService]
+        // canActivate: [AuthGuardService]
 
     },
   { path: 'sign-pdf', loadChildren: './sign-pdf/sign-pdf.module#SignPdfPageModule' },

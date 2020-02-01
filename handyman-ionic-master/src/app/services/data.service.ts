@@ -1,26 +1,30 @@
 import { Injectable } from '@angular/core';
-import { FileModel } from '../models/file.model'
+import { SignPdfModel } from '../models/SignPdfModel'
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  private id = '5';
+  private url = '../../assets/pdf_icon.png';
   private name = 's';
   private m_date: string
   
-  public tloshs: FileModel[] = [];
+  // public tloshs: [] = [];
   
-  public signPdf: FileModel[] = [];
-  private getTloshs(){
-    for(let i = 0; i < 5; ++i){
-      let tlosh_1 = new FileModel(`${this.name}_${i}`, `${i}`, new Date(`${this.m_date}_ ${i}`)) ;
-      this.tloshs.push(tlosh_1);
+  public signPdf: SignPdfModel[] = [];
+  // private getTloshs(){
+  //   for(let i = 0; i < 5; ++i){
+  //     let tlosh_1 = new FileModel(`${this.name}_${i}`, `${i}`, new Date(`${this.m_date}_ ${i}`)) ;
+  //     this.tloshs.push(tlosh_1);
+  //   }
+  // }
+  public getSign(){
+    if (this.signPdf.length > 0) {
+      return;
     }
-  }
-  private getSign(){
     for(let i = 0; i < 5; ++i){
-      let sign_1 = new FileModel(`${this.name}_${i}`, `${i}`, new Date(`${this.m_date}_ ${i}`)) ;
+      let sign_1 = new SignPdfModel(`${this.name}_${i}`, this.url, new Date(`${this.m_date}_ ${i}`)) ;
       this.signPdf.push(sign_1);
     }
   }
@@ -257,7 +261,7 @@ export class DataService {
   
 
   constructor() {
-    this.getTloshs();
+    // this.getTloshs();
     this.getSign();
 
    }

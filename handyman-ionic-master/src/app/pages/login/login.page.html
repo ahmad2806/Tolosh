@@ -5,27 +5,33 @@
 </ion-header>
 
 <ion-content>
+	<form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
     <ion-grid class="column-evenly">
 		<ion-row>
 			<ion-col>         
 				<ion-item class="ion-no-padding">
 					<ion-label position="stacked">Email address</ion-label>
-					<ion-input [(ngModel)]="email"></ion-input>
+					<ion-input type="email" formControlName="email"></ion-input>
 				</ion-item>
 				<ion-item class="ion-no-padding">
 					<ion-label position="stacked">Password</ion-label>
-					<ion-input type="password" [(ngModel)]="password"></ion-input>
+					<ion-input type="password" formControlName="password"></ion-input>
 				</ion-item>
 			</ion-col>
 		</ion-row>
 		<ion-row>
 			<ion-col>
 				<ion-button 
-				class="button-size center-button" expand="block" (click)="login()">
+				class="button-size center-button" expand="block" type="submit" [disabled]="!credentialsForm.valid">
 					Sign In
+				</ion-button>
+				<ion-button 
+				class="button-size center-button" expand="block" (click)="register()" [disabled]="!credentialsForm.valid">
+					Sign Up
 				</ion-button>
 					<div class="m-top"><span>Don't have an account? Please ask admin to create account for you</span></div>
 			</ion-col>
 		</ion-row>
-    </ion-grid>
+	</ion-grid>
+</form>
 </ion-content>

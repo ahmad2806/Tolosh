@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
     // {
@@ -7,7 +8,7 @@ const routes: Routes = [
     //     loadChildren: () => import('./pages/onboarding/onboarding.module').then(m => m.OnboardingPageModule)
     // },
     {
-        path: '',
+        path: 'login',
         loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
     },
     {
@@ -32,7 +33,9 @@ const routes: Routes = [
     },
     {
         path: 'home',
-        loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
+        loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule),
+        canActivate: [AuthGuardService]
+
     },
   { path: 'sign-pdf', loadChildren: './sign-pdf/sign-pdf.module#SignPdfPageModule' },
 ];

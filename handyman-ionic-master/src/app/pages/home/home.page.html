@@ -5,7 +5,7 @@
 				<ion-col class="flex-container" >
 					<div class="left-side">
 						<span>Welcome</span>
-						<h5>Basheer Sheikha</h5>
+						<h5>{{user.firstName}} {{user.lastName}}</h5>
 					</div>
 					<div class="right-side">
 						<div class="inbox-icon" [routerLink]="['/my-appointments']">
@@ -29,7 +29,7 @@
 		<hr/>
 		<ion-row>
 			<ng-container *ngFor="let item of cardInf">
-				<ion-col size="6"  >
+				<ion-col size="6"  *ngIf="checkIfAdded(item)">
 					<app-card-info  [routerLink]="item.routePage" [info]="item"></app-card-info>
 				</ion-col>
 			</ng-container>

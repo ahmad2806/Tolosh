@@ -8,12 +8,34 @@ var logger = require('morgan'),
     helmet = require('helmet'),
     secrets = require('./secrets'),
     awsController = require('./aws-controller');
+var passport	= require('passport');
+var mongoose    = require('mongoose');
+var config      = require('./config/config');
+
 var app = express();
 app.use(helmet());
+app.use(cors());
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors({origin:true, credentials: true}));
+app.use(passport.initialize());
+var passportMiddleware = require('./middleware/passport');
+passport.use(passportMiddleware);
+
+var routes = require('./routes');
+app.use('/api', routes);
+mongoose.connect(config.db, { useNewUrlParser: true , useCreateIndex: true});
+const connection = mongoose.connection;
+
+connection.once('open', () => {
+    console.log('MongoDB database connection established successfully!');
+});
+
+connection.on('error', (err) => {
+    console.log("MongoDB connection error. Please make sure MongoDB is running. " + err);
+    process.exit();
+});
 
 if(process.env.NODE_ENV === 'development') {
     app.use(logger('dev'));

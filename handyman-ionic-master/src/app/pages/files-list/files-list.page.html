@@ -10,9 +10,9 @@
       <p style="color: blue; font-size: x-large;"> Your Files </p>
     </ion-list-header>
 
-    <ion-item *ngFor="let item of listObject.filesList" (click)="viewItem(item)">
+    <ion-item *ngFor="let item of listObject.filesList" (click)="listObject.m_func()">
       <ion-avatar slot="start">
-        <img src="../../assets/pdf_icon.png">
+        <img [src]="listObject.img_src">
       </ion-avatar>
       <ion-label>
         <h2>{{item.name}}</h2>

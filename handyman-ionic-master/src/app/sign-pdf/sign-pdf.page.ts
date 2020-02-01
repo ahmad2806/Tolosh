@@ -8,6 +8,7 @@ import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { AppAvailability } from '@ionic-native/app-availability/ngx';
 import { Market } from '@ionic-native/market/ngx';
 import { DataService } from '../services/data.service'
+import { ListPageObject } from '../models/listPageObject.model';
 
 @Component({
   selector: 'app-sign-pdf',
@@ -22,13 +23,13 @@ export class SignPdfPage {
     private fileOpener: FileOpener, private appAvailability: AppAvailability,
     private market: Market, private alertCtrl: AlertController, private dataService: DataService) { }
 
-  private signObject = { 
-                          pageName: "Sign PDF", 
-                          filesList: this.dataService.signPdf, 
-                          m_func: this.m_alert, 
-                          img_src: "../../assets/pdf_icon.png" 
-                        }
-                        
+  private signObject = new ListPageObject( 
+                          "Sign PDF", 
+                          this.dataService.signPdf, 
+                          this.m_alert, 
+                          "../../assets/pdf_icon.png" 
+                        )
+
   private PDF_READER: string = "com.adobe.reader";
   private APP_NOT_FOUND: string = `please download adobe acrobat to ensure the best results\ndownlaod and come back to the app\n`
   private OPEN_APP: string = `please open the pdf using adobe acrobat to ensure the best results\n`
@@ -38,7 +39,7 @@ export class SignPdfPage {
   }
 
   public m_alert() {
-    alert("inside");
+    alert("inside sign");
   }
   private setPath() {
     let path = null;

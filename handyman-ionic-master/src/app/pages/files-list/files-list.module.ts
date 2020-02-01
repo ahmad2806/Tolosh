@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SignPdfPage } from './sign-pdf.page';
-import { FilesListPage } from '../pages/files-list/files-list.page';
+import { FilesListPage } from './files-list.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: SignPdfPage
+    component: FilesListPage
   }
 ];
 
@@ -22,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [SignPdfPage, FilesListPage]
+  declarations: [FilesListPage]
 })
-export class SignPdfPageModule {}
+export class FilesListPageModule {}

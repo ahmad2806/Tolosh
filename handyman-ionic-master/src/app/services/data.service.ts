@@ -1,9 +1,32 @@
 import { Injectable } from '@angular/core';
+import { FileModel } from '../models/file.model'
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+  private id = '5';
+  private name = 's';
+  private m_date: string
+  
+  public tloshs: FileModel[] = [];
+  
+  public signPdf: FileModel[] = [];
+  private getTloshs(){
+    for(let i = 0; i < 5; ++i){
+      let tlosh_1 = new FileModel(`${this.name}_${i}`, `${i}`, new Date(`${this.m_date}_ ${i}`)) ;
+      this.tloshs.push(tlosh_1);
+    }
+  }
+  private getSign(){
+    for(let i = 0; i < 5; ++i){
+      let sign_1 = new FileModel(`${this.name}_${i}`, `${i}`, new Date(`${this.m_date}_ ${i}`)) ;
+      this.signPdf.push(sign_1);
+    }
+  }
+  
+  
+
   data = [
     {
       id: 1,
@@ -231,8 +254,13 @@ export class DataService {
 
     }
   ];
+  
 
-  constructor() {}
+  constructor() {
+    this.getTloshs();
+    this.getSign();
+
+   }
 
   getData() {
     return this.data;

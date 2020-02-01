@@ -7,6 +7,8 @@ import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { AppAvailability } from '@ionic-native/app-availability/ngx';
 import { Market } from '@ionic-native/market/ngx';
+import { DataService } from '../services/data.service'
+import { ListPageObject } from '../models/listPageObject.model';
 
 @Component({
   selector: 'app-sign-pdf',
@@ -19,7 +21,14 @@ export class SignPdfPage {
     private platform: Platform, private document: DocumentViewer,
     private file: File, private transfer: FileTransfer,
     private fileOpener: FileOpener, private appAvailability: AppAvailability,
-    private market: Market, private alertCtrl: AlertController) { }
+    private market: Market, private alertCtrl: AlertController, private dataService: DataService) { }
+
+  private signObject = new ListPageObject( 
+                          "Sign PDF", 
+                          this.dataService.signPdf, 
+                          this.m_alert, 
+                          "../../assets/pdf_icon.png" 
+                        )
 
   private PDF_READER: string = "com.adobe.reader";
   private APP_NOT_FOUND: string = `please download adobe acrobat to ensure the best results\ndownlaod and come back to the app\n`
@@ -29,7 +38,9 @@ export class SignPdfPage {
     return this.file.applicationDirectory + 'www/assets';
   }
 
-
+  public m_alert() {
+    alert("inside sign");
+  }
   private setPath() {
     let path = null;
     if (this.platform.is("ios")) {
@@ -51,9 +62,9 @@ export class SignPdfPage {
         //   alert.present().then(() => {
         //     this.fileOpener.open(url, 'application/pdf');
         //   });
-        
+
         // });
-        
+
         alert(`${this.OPEN_APP}`);
         this.fileOpener.open(url, 'application/pdf');
       },
@@ -66,7 +77,7 @@ export class SignPdfPage {
         //   alert.present().then(() => {
         //     this.market.open(this.PDF_READER);
         //   });
-        
+
         // });
 
         alert(`${this.APP_NOT_FOUND}`);

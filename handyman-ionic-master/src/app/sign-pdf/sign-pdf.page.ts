@@ -7,6 +7,7 @@ import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { AppAvailability } from '@ionic-native/app-availability/ngx';
 import { Market } from '@ionic-native/market/ngx';
+import {DataService} from '../services/data.service'
 
 @Component({
   selector: 'app-sign-pdf',
@@ -19,8 +20,8 @@ export class SignPdfPage {
     private platform: Platform, private document: DocumentViewer,
     private file: File, private transfer: FileTransfer,
     private fileOpener: FileOpener, private appAvailability: AppAvailability,
-    private market: Market, private alertCtrl: AlertController) { }
-
+    private market: Market, private alertCtrl: AlertController, private dataService: DataService) {}
+    private tloshObject = {pageName: "Sign PDF", filesList: this.dataService.signPdf}
   private PDF_READER: string = "com.adobe.reader";
   private APP_NOT_FOUND: string = `please download adobe acrobat to ensure the best results\ndownlaod and come back to the app\n`
   private OPEN_APP: string = `please open the pdf using adobe acrobat to ensure the best results\n`

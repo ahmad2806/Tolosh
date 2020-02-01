@@ -35,6 +35,9 @@ const routes: Routes = [
         loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
     },
   { path: 'sign-pdf', loadChildren: './sign-pdf/sign-pdf.module#SignPdfPageModule' },
+  { path: 'files-list', loadChildren: () => import('./pages/files-list/files-list.module').then(m=> m.FilesListPageModule) },
+//   './files-list/files-list.module#FilesListPageModule'
+
 ];
 @NgModule({
     imports: [

@@ -1,0 +1,23 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>{{listObject.pageName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <ion-list-header style="justify-content: center">
+      <p style="color: blue; font-size: x-large;"> Your Files </p>
+    </ion-list-header>
+
+    <ion-item *ngFor="let item of listObject.filesList" (click)="viewItem(item)">
+      <ion-avatar slot="start">
+        <img src="../../assets/pdf_icon.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{item.name}}</h2>
+        <p>{{item.date}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

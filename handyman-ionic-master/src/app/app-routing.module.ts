@@ -37,8 +37,10 @@ const routes: Routes = [
         // canActivate: [AuthGuardService]
 
     },
-  { path: 'sign-pdf', loadChildren: './sign-pdf/sign-pdf.module#SignPdfPageModule' },
-  { path: 'files-list', loadChildren: () => import('./pages/files-list/files-list.module').then(m=> m.FilesListPageModule) },
+  { path: 'sign-pdf', loadChildren: './pages/sign-pdf/sign-pdf.module#SignPdfPageModule' },
+  { path: 'files-list', loadChildren: './pages/files-list/files-list.module#FilesListPageModule'},
+  { path: 'tlosh', loadChildren: './pages/tlosh/tlosh.module#TloshPageModule' },
+
 //   './files-list/files-list.module#FilesListPageModule'
 
 ];

@@ -13,13 +13,14 @@ export class DataService {
   // public tloshs: [] = [];
   
   public signPdf: SignPdfModel[] = [];
-  // private getTloshs(){
-  //   for(let i = 0; i < 5; ++i){
-  //     let tlosh_1 = new FileModel(`${this.name}_${i}`, `${i}`, new Date(`${this.m_date}_ ${i}`)) ;
-  //     this.tloshs.push(tlosh_1);
-  //   }
-  // }
-  public getSign(){
+  public tloshs: SignPdfModel[] = [];
+  private getTloshs(){
+    for(let i = 0; i < 5; ++i){
+      let tlosh_1 = new SignPdfModel(`${this.name}_${i} tlosh`, this.url, new Date(`${this.m_date}_ ${i}`)) ;
+      this.tloshs.push(tlosh_1);
+    }
+  }
+  private getPdfFill(){
     if (this.signPdf.length > 0) {
       return;
     }
@@ -29,7 +30,10 @@ export class DataService {
     }
   }
   
-  
+  public fillData(){
+    this.getPdfFill();
+    this.getTloshs();
+  }
 
   data = [
     {
@@ -222,7 +226,7 @@ export class DataService {
       url: 'assets/icons/pdf.svg',
       color: 'red',
       role: 'user',
-      routePage: '/category/' + 2
+      routePage: '/tlosh/'
     },
     {
       id: 3,
@@ -261,10 +265,8 @@ export class DataService {
   
 
   constructor() {
-    // this.getTloshs();
-    this.getSign();
-
-   }
+    this.fillData()
+  }
 
   getData() {
     return this.data;

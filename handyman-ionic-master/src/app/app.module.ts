@@ -18,6 +18,8 @@ import { File } from '@ionic-native/file/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { FilesListPageModule } from './pages/files-list/files-list.module';
+
 
 export function jwtOptionsFactory(storage) {
   return {
@@ -33,6 +35,7 @@ export function jwtOptionsFactory(storage) {
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     HttpClientModule,
+    // FilesListPageModule,
     IonicStorageModule.forRoot(),
     JwtModule.forRoot({
       jwtOptionsProvider: {
@@ -40,7 +43,8 @@ export function jwtOptionsFactory(storage) {
         useFactory: jwtOptionsFactory,
         deps: [Storage],
       }
-    })],
+    }),
+    ],
   providers: [
     StatusBar,
     SplashScreen,
@@ -51,8 +55,8 @@ export function jwtOptionsFactory(storage) {
     AppAvailability,
     Market,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    
+
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

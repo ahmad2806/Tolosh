@@ -7,9 +7,9 @@ import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { AppAvailability } from '@ionic-native/app-availability/ngx';
 import { Market } from '@ionic-native/market/ngx';
-import { DataService } from '../services/data.service'
-import { ListPageObject } from '../models/listPageObject.model';
-import { SignPdfModel } from '../models/SignPdfModel';
+
+
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-sign-pdf',
@@ -25,7 +25,7 @@ export class SignPdfPage implements OnInit{
     private market: Market, private alertCtrl: AlertController, private dataService: DataService) { }
 
     ngOnInit(){
-      this.dataService.getSign();
+      // this.dataService.fillData();
     }
 
   // private signObject = new ListPageObject( 
@@ -43,7 +43,7 @@ export class SignPdfPage implements OnInit{
     return this.file.applicationDirectory + 'www/assets';
   }
 
-  public m_alert() {
+  public signPdfOnClick() {
     alert("inside sign");
   }
   private setPath() {

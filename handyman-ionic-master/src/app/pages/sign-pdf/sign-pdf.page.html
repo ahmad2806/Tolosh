@@ -11,9 +11,9 @@
 		</ion-buttons>
 </ion-header>
 
-<ion-item *ngFor="let item of this.dataService.signPdf" (click)="signPdfOnClick()">
+<ion-item *ngFor="let item of this.dataService.signPdf" (click)="signPdfOnClick(item.url)">
   <ion-avatar slot="start">
-    <img [src]="item.url">
+    <img [src]="item.imageUrl">
   </ion-avatar>
   <ion-label>
     <h2>{{item.name}}</h2>

@@ -4,10 +4,9 @@
   </ion-buttons>
 </ion-header>
 
-<ion-item
-  *ngFor="let item of this.dataService.tloshs" (click)="tloshOnClick()" >
+<ion-item *ngFor="let item of this.dataService.tloshs" (click)="tloshOnClick(item.url)">
   <ion-avatar slot="start">
-    <img [src]="item.url">
+    <img [src]="item.imageUrl">
   </ion-avatar>
   <ion-label>
     <h2>{{item.name}}</h2>

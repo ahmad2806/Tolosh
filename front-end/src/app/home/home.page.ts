@@ -109,8 +109,9 @@ export class HomePage {
     const file_name = "tofs.pdf";
     // check internet connection
     let path = this.setPath();
-    const url = 'https://www.docdroid.net/file/download/caC6W0b/vfs-hshtlmvt.pdf';
+    // const url = 'https://www.docdroid.net/file/download/caC6W0b/vfs-hshtlmvt.pdf';
     // const url = 'https://www.docdroid.net/eSQ6iOX/nhli-mshmt-svdnim-dmbr-2018.pdf';
+    const url = 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf';
 
     // this.file.checkFile(path, file_name).then(_ => alert(`file already exist in \n ${path}`)).catch(err => this.downloadAndOpenFile(url, path, file_name));
     path = this.startDownload(url, path, file_name)

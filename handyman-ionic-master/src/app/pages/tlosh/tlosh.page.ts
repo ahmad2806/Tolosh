@@ -10,8 +10,9 @@ export class TloshPage implements OnInit {
 
   constructor(private dataService: DataService) { }
 
-  public tloshOnClick() {
-    alert("inside tlosh");
+  public tloshOnClick(url: string) {
+    console.log(url);
+    this.dataService.loadLocalPdf();
   }
   ngOnInit() {
   }
